@@ -286,6 +286,7 @@ domain("git.plugin-lab.com") {
     --gl-control-border-color-default: @subtext0;
     --gl-control-border-color-hover: @subtext0;
     --gl-border-color-default: @overlay0;
+    --gl-control-border-color-selected-default: @accent-color;
 
     input,
     textarea {
@@ -305,6 +306,16 @@ domain("git.plugin-lab.com") {
 
     .gl-label .gl-label-link-underline {
       color: var(--gl-label-dark-text-color);
+    }
+
+    .input-group-text {
+        background-color: @mantle;
+        color: @text;
+        border-color: @surface0;
+    }
+    
+    .user-contrib-text {
+        fill: @subtext0;
     }
 
     .super-sidebar {
