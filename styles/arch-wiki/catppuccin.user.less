@@ -16,13 +16,23 @@
 ==/UserStyle== */
 
 @-moz-document domain("wiki.archlinux.org") {
-  :root {
+  :root.skin-theme-clientpref-os,
+  .skin-invert,
+  .notheme {
     @media (prefers-color-scheme: light) {
       #catppuccin(@lightFlavor);
     }
     @media (prefers-color-scheme: dark) {
       #catppuccin(@darkFlavor);
     }
+  }
+
+  :root.skin-theme-clientpref-night {
+    #catppuccin(@darkFlavor);
+  }
+
+  :root.skin-theme-clientpref-day {
+    #catppuccin(@lightFlavor);
   }
 
   #catppuccin(@flavor) {
@@ -67,37 +77,97 @@
       }
     }
 
-    #content table,
-    #content h1,
-    #content h2,
-    #content h3,
-    #content h4,
-    #content h5,
-    #content pre,
-    #content code,
-    #content tt {
-      color: @text !important;
-    }
+    --body-background-color: @base;
+    --text-color: @text;
+    --content-background-color: @base;
+    --content-border-color: @base;
+    --toc-background-color: #f9faff;
+    --toc-border-color: #d7dfe3;
+    --code-border-color: #bcd;
+    --code-background-color: #ebf1f5;
 
-    body.skin-vector-2022 .vector-sticky-header {
-      color: @text !important;
-      background-color: @mantle !important;
-      border-bottom-color: @blue !important;
-    }
-
-    #vector-main-menu-pinned-container,
-    #vector-page-tools-pinned-container {
-      background-color: @base !important;
-    }
+    --color-base: @text;
+    --color-base--hover: @text;
+    --color-emphasized: @text;
+    --color-subtle: @subtext0;
+    --color-inverted: @crust;
+    --color-inverted-fixed: @crust;
+    --color-progressive: @accent;
+    --color-progressive--hover: darken(@accent, 5%);
+    --color-progressive--active: darken(@accent, 5%);
+    --color-progressive--focus: darken(@accent, 5%);
+    --color-destructive: @red;
+    --color-destructive--hover: @maroon;
+    --color-destructive--active: @maroon;
+    --color-visited: @lavender;
+    --color-destructive--visited: #b97876;
+    --color-error: @red;
+    --color-warning: @yellow;
+    --color-success: @green;
+    --color-notice: @text;
+    --color-icon-error: @red;
+    --color-icon-warning: @yellow;
+    --color-icon-success: @green;
+    --color-icon-notice: @subtext0;
+    --color-content-added: @green;
+    --color-content-removed: @maroon;
+    --color-placeholder: @subtext0;
+    --color-disabled: @overlay2;
+    --box-shadow-color-base: #fff;
+    --box-shadow-color-inverted: #000;
+    --box-shadow-color-progressive--focus: @accent;
+    --background-color-interactive: @surface0;
+    --background-color-interactive-subtle: @surface0;
+    --background-color-interactive-subtle--hover: @surface1;
+    --background-color-disabled: @overlay2;
+    --background-color-disabled-subtle: @surface0;
+    --background-color-progressive: @accent;
+    --background-color-progressive-subtle: fade(@accent, 10%);
+    --background-color-destructive-subtle: #421211;
+    --background-color-progressive--active: fade(@accent, 70%);
+    --background-color-progressive--hover: fade(@accent, 70%);
+    --background-color-progressive--focus: fade(@accent, 70%);
+    --background-color-error: @red;
+    --background-color-error--hover: @maroon;
+    --background-color-error--active: @maroon;
+    --background-color-error-subtle: fade(@red, 20%);
+    --background-color-warning-subtle: fade(@yellow, 20%);
+    --background-color-success-subtle: fade(@green, 20%);
+    --background-color-notice-subtle: @surface0;
+    --background-color-content-added: #2a4b8d;
+    --background-color-content-removed: #a66200;
+    --background-color-backdrop-light: rgba(0, 0, 0, 0.65);
+    --background-color-backdrop-dark: rgba(255, 255, 255, 0.65);
+    --background-color-base: @base;
+    --background-color-base-fixed: @base;
+    --background-color-neutral: @base;
+    --background-color-neutral-subtle: @surface0;
+    --background-color-inverted: @text;
+    --background-color-input-binary--checked: @accent;
+    --border-base: 1px solid @surface0;
+    --border-subtle: 1px solid @surface0;
+    --border-color-base: @surface0;
+    --border-color-interactive: @surface2;
+    --border-color-interactive--hover: @overlay0;
+    --border-color-disabled: #54595d;
+    --border-color-subtle: @surface1;
+    --border-color-muted: #404244;
+    --border-color-inverted: #101418;
+    --border-color-error: @red;
+    --border-color-error--hover: @maroon;
+    --border-color-warning: @yellow;
+    --border-color-success: @green;
+    --border-color-notice: @surface2;
+    --border-color-content-added: @blue;
+    --border-color-content-removed: @peach;
+    --border-color-progressive: @accent;
+    --border-color-progressive--active: @accent;
+    --border-color-progressive--hover: @accent;
+    --border-color-progressive--focus: @accent;
 
     #ooui-php-191,
     #preferences .mw-htmlform-submit-buttons {
       background-color: @mantle !important;
-    }
-
-    .mw-echo-ui-notificationItemWidget-content-message-header,
-    .oo-ui-labelElement-label {
-      color: @text !important;
     }
 
     .oo-ui-optionWidget-selected {
@@ -107,7 +177,6 @@
     .oo-ui-buttonElement-framed.oo-ui-widget-disabled
       > .oo-ui-buttonElement-button {
       background-color: @surface0 !important;
-      color: @text !important;
       border-color: @surface2 !important;
       filter: brightness(0.4);
       cursor: not-allowed;
@@ -142,17 +211,6 @@
       background-color: @mantle !important;
       border-bottom-color: @blue !important;
     }
-    .mw-parser-output {
-      background-color: @base !important;
-    }
-
-    .mw-page-container {
-      background-color: @base !important;
-    }
-
-    .vector-header-container {
-      background-color: @base !important;
-    }
 
     #content,
     header.mw-header li:not(.new),
@@ -166,14 +224,14 @@
       }
     }
 
-    @media screen {
-      html.client-darkmode {
-        background-color: @base;
+    #content,
+    #mw-panel li:not(.new) {
+      a:not([role="button"], .new):visited {
+        color: @mauve !important;
       }
     }
 
-    .vector-feature-zebra-design-disabled,
-    body {
+    .vector-feature-zebra-design-disabled {
       background-color: @base;
     }
 
@@ -183,10 +241,6 @@
       );
       background: url("data:image/svg+xml,@{svg}") !important;
       background-size: 190px 40px !important;
-    }
-    .cdx-text-input__input:enabled:focus {
-      border-color: @blue;
-      box-shadow: @blue !important;
     }
 
     .archwiki-template-box-tip {
@@ -207,314 +261,34 @@
       color: @subtext1;
     }
 
-    .firstHeading {
-      color: @accent !important;
-    }
-
-    #content {
-      border-color: @overlay0;
-    }
-
     #content pre:not([class*="CodeMirror"]),
     #content code,
     #content tt {
-      background-color: @surface0;
-      color: @text;
+      background-color: @surface0 !important;
+      color: @text !important;
       border-color: @overlay0;
-    }
-
-    .vector-pinned-container {
-      border-color: @overlay0 !important;
-    }
-
-    .vector-pinnable-header-label {
-      color: @text;
     }
 
     .vector-pinnable-header-toggle-button,
     .vector-pinnable-header-unpin-button {
       color: @mantle;
       background-color: @accent;
-      border-color: @base;
-    }
-
-    .wikitable {
-      background-color: @base;
-    }
-
-    .wikitable > tr > th,
-    .wikitable > tr > td,
-    .wikitable > * > tr > th,
-    .wikitable > * > tr > td {
-      color: @text;
-      border-color: @crust;
-    }
-
-    .wikitable > tr > th,
-    .wikitable > * > tr > th {
-      background-color: @mantle;
-      color: @text;
-    }
-
-    .pre {
-      color: @mantle;
-    }
-
-    .mw-headline {
-      color: @text;
-    }
-
-    .plainlinks,
-    .archwiki-template-man,
-    .external text {
-      color: multiply(@blue, #555);
-    }
-
-    .cdx-button:enabled.cdx-button--weight-quiet,
-    .cdx-button.cdx-button--fake-button--enabled,
-    .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet,
-    .diff-context,
-    .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
-    .oo-ui-checkboxInputWidget [type="checkbox"] + span {
-      background-color: @surface0;
-      color: @text;
-      border-color: @surface2;
-    }
-
-    .vector-feature-zebra-design-disabled,
-    #contentSub:not(:empty) {
-      color: @surface0 !important;
-    }
-
-    .mw-editfont-monospace {
-      background-color: @surface0;
-      color: @text;
-      border-color: @surface1;
-    }
-
-    .diff-deletedline,
-    .mw-message-box-warning {
-      background-color: @yellow;
-      color: @mantle;
-    }
-
-    .diff-addedline {
-      background-color: @sky;
-      color: @mantle;
-    }
-
-    .mw-message-box-error {
-      background-color: @flamingo;
-      border-color: @red;
-      color: @base;
-    }
-
-    .mw-number-text {
-      color: @text;
-    }
-
-    .cdx-checkbox__icon {
-      background-color: @surface0;
-    }
-
-    .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-      [type="checkbox"]:checked
-      + span,
-    .cdx-checkbox__input:enabled:checked + .cdx-checkbox__icon,
-    .cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive {
-      background-color: @blue;
-      border-color: @sapphire;
-      color: @mantle !important;
-    }
-
-    .vector-feature-zebra-design-disabled,
-    #vector-toc-pinned-container,
-    .vector-toc::after {
-      background: linear-gradient(rgba(255, 255, 255, 0), @base) !important;
     }
 
     #archnavbar ul li.anb-selected a {
       color: @accent !important;
     }
 
-    .archwiki-template-message {
-      background-color: @base;
-    }
-
-    .catlinks {
-      background-color: @mantle;
-    }
-
-    .mw-parser-output p {
-      color: @text !important;
-    }
-
-    .archwiki-template-meta-related-articles {
-      background-color: @surface0;
-    }
-
-    .archwiki-template-meta-related-articles p {
-      color: @text;
-      border-bottom-color: @blue;
-    }
-
-    .archwiki-template-meta-related-articles ul li a {
-      color: @blue important;
-    }
-
-    .mw-plusminus-neg,
-    a.new {
-      color: @red !important;
-    }
-
-    .mw-plusminus-pos {
-      color: @green;
-    }
-
-    .mw-plusminus-null {
-      color: @subtext0;
-    }
-
-    .oo-ui-textInputWidget .oo-ui-inputWidget-input,
-    .mw-widget-dateInputWidget-handle,
-    .oo-ui-buttonElement-framed.oo-ui-widget-enabled
-      > .oo-ui-buttonElement-button,
-    #pagehistory li.selected {
-      background-color: @surface0 !important;
-      color: @text !important;
-      border-color: @surface2 !important;
-    }
-
-    .oo-ui-menuSelectWidget {
-      background-color: @surface0;
-      border-color: @surface2;
-    }
-
-    .oo-ui-OptionWidget-highlighted {
-      background-color: @overlay0 !important;
-    }
-
-    .oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget,
-    .minoredit,
-    .comment {
-      color: @text;
-    }
-
-    .mw-footer-container {
-      color: @text !important;
-    }
-
     #archnavbarlist li a {
       color: @blue !important;
     }
 
-    .anb-selected {
-      color: @subtext1 !important;
-    }
-
-    .mw-footer li {
-      color: @text;
-    }
-
-    .vector-main-menu,
-    .vector-pinnable-element {
-      background-color: @base !important;
-    }
-
-    #p-navigation ul li a {
-      color: @blue !important;
-    }
-
-    .archwiki-template-box-note a {
-      color: @blue !important;
-    }
-
-    .archwiki-template-box-note a:visited {
-      color: @mauve !important;
-    }
-
-    .mw-page-title-main {
-      color: @text;
-    }
-
-    .vector-tab-noicon mw-list-item a {
-      color: @blue;
-    }
-
-    .mw-header {
-      background-color: @base !important;
-      color: @text;
-    }
-
-    .mw-footer li a {
-      color: @blue;
-    }
-
-    .cdx-text-input__input:enabled {
-      background-color: @surface0 !important;
-      color: @text !important;
-      border-color: @surface1;
-    }
-
-    .cdx-button:enabled,
-    .cdx-button.cdxbutton--fake-button--enabled {
-      color: @mantle;
-      background-color: @accent;
-      border-color: @base;
-    }
-
-    .cdx-menu {
-      background-color: @surface0;
-    }
-
-    .cdx-menu:hover {
-      background-color: @base !important;
-    }
-
-    .anb-home {
-      color: @text !important;
-    }
-
-    .vector-dropdown-content {
-      background-color: @base !important;
+    #archnavbarlist li a:hover {
+      color: white !important;
     }
 
     .mw-headline::before {
       color: @accent !important;
-    }
-
-    .cdx-button {
-      background-color: @base !important;
-      color: @text !important;
-      border-color: @base !important;
-    }
-
-    .mw-body {
-      background-color: @base !important;
-      color: @text !important;
-      border-color: @base !important;
-    }
-
-    .mw-search-profile-tabs {
-      background-color: @base !important;
-      color: @text !important;
-      border-color: @base !important;
-    }
-
-    .mw-content-ltr {
-      background-color: @base !important;
-    }
-
-    .vector-sticky-pinned-container::after {
-      background: @base !important;
-    }
-
-    .cdx-search-input {
-      border-color: @mantle !important;
-    }
-
-    .oo-ui-widget:hover {
-      background-color: @surface0 !important;
     }
   }
 }
